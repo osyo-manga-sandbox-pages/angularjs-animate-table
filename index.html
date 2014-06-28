@@ -110,7 +110,7 @@
       /* line 91, (__TEMPLATE__) */
       table {
         table-layout: fixed;
-        width: 1200px; }
+        width: 800px; }
       
       /* line 96, (__TEMPLATE__) */
       th {
@@ -140,11 +140,10 @@
           <br>
           <br>
           <pre>{{  data }}</pre>
-          <pre>{{  data.length  }}</pre>
           <table>
             <tr ng-repeat='i in [1]'>
-              <th ng-repeat='month in data' style="width: {{ true ? '100px;' : '0px;' }}">
-                {{ "test" }}
+              <th ng-repeat='month in data track by $index' style="width: {{ month.active ? '100px;' : '0px;' }}">
+                {{ month.value }}
               </th>
             </tr>
           </table>
