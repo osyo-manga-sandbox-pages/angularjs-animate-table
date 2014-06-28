@@ -48,44 +48,97 @@
       .animate-repeat-row {
         white-space: nowrap;
         overflow: hidden;
-        display: table-cell;
-        max-width: 100px; }
+        display: table-cell; }
       
       /* line 37, (__TEMPLATE__) */
+      .animate-repeat.ng-move,
       .animate-repeat-row.ng-enter,
       .animate-repeat-row.ng-leave {
         -webkit-transition: all linear 0.5s;
         transition: all linear 0.5s; }
       
-      /* line 43, (__TEMPLATE__) */
+      /* line 44, (__TEMPLATE__) */
       .animate-repeat-row.ng-leave.ng-leave-active,
+      .animate-repeat.ng-move,
       .animate-repeat-row.ng-enter {
         max-width: 0; }
       
-      /* line 48, (__TEMPLATE__) */
+      /* line 50, (__TEMPLATE__) */
       .animate-repeat-row.ng-leave,
+      .animate-repeat.ng-move.ng-move-active,
       .animate-repeat-row.ng-enter.ng-enter-active {
         max-width: 100px; }
       
-      /* line 52, (__TEMPLATE__) */
+      /* line 57, (__TEMPLATE__) */
+      .animate-width.ng-enter,
+      .animate-width.ng-leave,
+      .animate-width.ng-move {
+        -webkit-transition: all 0.8s;
+        overflow: hidden;
+        position: relative;
+        display: block;
+        width: 0px; }
+      
+      /* line 65, (__TEMPLATE__) */
+      .animate-width.ng-enter {
+        width: 0px; }
+      
+      /* line 68, (__TEMPLATE__) */
+      .animate-width.ng-enter.ng-enter-active {
+        width: 100%; }
+      
+      /* line 71, (__TEMPLATE__) */
+      .animate-width.ng-leave {
+        width: 100%; }
+      
+      /* line 74, (__TEMPLATE__) */
+      .animate-width.ng-leave.ng-leave-active {
+        width: 0px; }
+      
+      /* line 77, (__TEMPLATE__) */
       .cell {
-        width: 700px; }
+        min-width: 0px;
+        max-width: 0px;
+        width: 0px; }
+      
+      /* line 83, (__TEMPLATE__) */
+      .cell2 {
+        min-width: 100px;
+        max-width: 100px;
+        width: 100px; }
+      
+      /* line 89, (__TEMPLATE__) */
+      table {
+        table-layout: fixed;
+        width: 600px; }
+      
+      /* line 94, (__TEMPLATE__) */
+      th {
+        -webkit-transition: all linear 0.5s;
+        transition: all linear 0.5s;
+        min-width: 0px;
+        max-width: 200px;
+        overflow: hidden;
+        text-align: center;
+        border: 3px #000000 solid; }
     </style>
     <div class='container'>
       <br>
       <div ng-controller='AnimateDemoCtrl'>
         <p>
-          <a class='btn btn-default' ng-click='click()'>
+          <a class='btn btn-default' ng-click='test = !test'>
             Click me.
           </a>
+          <br>
+          <br>
+          <table>
+            <tr ng-repeat='i in [1]'>
+              <th ng-repeat='value in [0, 1, 2, 3, 4, 5, 6, 7]' style="width: {{ (value % 2 == 0) == test ? '100px;' : '0px;' }}">
+                {{ value }}
+              </th>
+            </tr>
+          </table>
         </p>
-        <table class='table table-striped table-bordered'>
-          <tr ng-class="$even ? 'warning' : 'info'" ng-repeat='i in [1]'>
-            <th class='animate-repeat-row' ng-repeat='value in row track by $index'>
-              {{ value }}
-            </th>
-          </tr>
-        </table>
       </div>
     </div>
   </body>

@@ -1,4 +1,5 @@
 var AnimateDemoCtrl = function ($scope) {
+	$scope.test = true;
 
 	$scope.months = [
 		"January",
